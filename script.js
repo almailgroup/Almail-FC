@@ -89,10 +89,14 @@ document.querySelectorAll('.season-tab').forEach(tab => {
     tab.addEventListener('click', function () {
         const season = this.getAttribute('data-season');
 
-        document.querySelectorAll('.season-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.season-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
         document.querySelectorAll('.season-panel').forEach(p => p.classList.remove('active'));
 
         this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
         const panel = document.getElementById('season-' + season);
         if (panel) panel.classList.add('active');
     });
@@ -102,8 +106,8 @@ document.querySelectorAll('.season-tab').forEach(tab => {
 const matchData = {
     'dumankaya': {
         compLabel: 'DUMANKAYA CUP — FINAL', compName: 'Dumankaya Cup', round: 'Final',
-        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo.png', homeCrest: 'A',
-        awayTeam: 'SHABAB AL HURA', awayImg: 'AlShababLogo.png', awayCrest: 'S',
+        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo-256.png', homeCrest: 'A',
+        awayTeam: 'SHABAB AL HURA', awayImg: 'AlShababLogo-256.png', awayCrest: 'S',
         score: '7 – 4', status: 'FT', winner: 'Almail SC WIN',
         date: 'Friday, 8 August 2025', kickoff: '7:55 PM',
         venue: 'Dumankaya Street Stadium',
@@ -124,8 +128,8 @@ const matchData = {
     },
     'dumankaya-2024': {
         compLabel: 'DUMANKAYA CUP — FINAL', compName: 'Dumankaya Cup', round: 'Final',
-        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo.png', homeCrest: 'A',
-        awayTeam: 'PALESTINE GUARDS', awayImg: 'Guards.png', awayCrest: 'PG',
+        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo-256.png', homeCrest: 'A',
+        awayTeam: 'PALESTINE GUARDS', awayImg: 'Guards-256.png', awayCrest: 'PG',
         score: '6 – 4', status: 'FT', winner: 'Almail SC WIN',
         date: 'Thursday, 25 July 2024', kickoff: '7:00 PM',
         venue: 'Dumankaya Street Stadium',
@@ -135,7 +139,7 @@ const matchData = {
     'dumankaya-2023-r1': {
         compLabel: 'DUMANKAYA CUP — GROUP STAGE — ROUND 1', compName: 'Dumankaya Cup', round: 'Group Stage — Round 1',
         homeTeam: 'RIYADH UNITED', homeImg: '', homeCrest: 'RU',
-        awayTeam: 'PALESTINE GUARDS', awayImg: 'Guards.png', awayCrest: 'PG',
+        awayTeam: 'PALESTINE GUARDS', awayImg: 'Guards-256.png', awayCrest: 'PG',
         score: '5 – 0', status: 'FT', winner: 'Riyadh United WIN',
         date: 'Sunday, 13 July 2023', kickoff: '7:40 PM',
         venue: 'Dumankaya Street Stadium',
@@ -143,8 +147,8 @@ const matchData = {
     },
     'dumankaya-2023-r2': {
         compLabel: 'DUMANKAYA CUP — GROUP STAGE — ROUND 2', compName: 'Dumankaya Cup', round: 'Group Stage — Round 2',
-        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo.png', homeCrest: 'A',
-        awayTeam: 'PALESTINE GUARDS', awayImg: 'Guards.png', awayCrest: 'PG',
+        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo-256.png', homeCrest: 'A',
+        awayTeam: 'PALESTINE GUARDS', awayImg: 'Guards-256.png', awayCrest: 'PG',
         score: '8 – 1', status: 'FT', winner: 'Almail SC WIN',
         date: 'Sunday, 16 July 2023', kickoff: '6:30 PM',
         venue: 'Dumankaya Street Stadium',
@@ -153,7 +157,7 @@ const matchData = {
     },
     'dumankaya-2023-r3': {
         compLabel: 'DUMANKAYA CUP — GROUP STAGE — ROUND 3', compName: 'Dumankaya Cup', round: 'Group Stage — Round 3',
-        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo.png', homeCrest: 'A',
+        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo-256.png', homeCrest: 'A',
         awayTeam: 'RIYADH UNITED', awayImg: '', awayCrest: 'RU',
         score: '5 – 2', status: 'FT', winner: 'Almail SC WIN',
         date: 'Tuesday, 18 July 2023', kickoff: '7:40 PM',
@@ -163,7 +167,7 @@ const matchData = {
     },
     'friendly-2023': {
         compLabel: 'FRIENDLY MATCH', compName: 'Friendly', round: 'Friendly Match',
-        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo.png', homeCrest: 'A',
+        homeTeam: 'ALMAIL SC', homeImg: 'AlmailScLogo-256.png', homeCrest: 'A',
         awayTeam: 'TURKISH BULDOGLER', awayImg: '', awayCrest: 'TB',
         score: '7 – 6', status: 'FT', winner: 'Almail SC WIN',
         date: 'Wednesday, 16 August 2023', kickoff: '5:30 PM',
@@ -200,6 +204,7 @@ function openMatchDetail(matchId) {
         // Reset to first tab
         document.querySelectorAll('.modal-tab').forEach((t, i) => {
             t.classList.toggle('active', i === 0);
+            t.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
         });
         document.querySelectorAll('.modal-tab-panel').forEach((p, i) => {
             p.classList.toggle('active', i === 0);
@@ -423,11 +428,171 @@ document.querySelectorAll('.modal-tab').forEach(tab => {
     tab.addEventListener('click', function () {
         const tabId = this.getAttribute('data-tab');
 
-        document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.modal-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
         document.querySelectorAll('.modal-tab-panel').forEach(p => p.classList.remove('active'));
 
         this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
         const panel = document.getElementById('tab-' + tabId);
         if (panel) panel.classList.add('active');
     });
 });
+
+// ── Site Search ───────────────────────────────────────────
+// Client-side index over matches, players and pages. Built lazily on first
+// open so it always reflects the current matchData / playerData.
+(function () {
+    const btn     = document.getElementById('searchBtn');
+    const panel   = document.getElementById('searchPanel');
+    const input   = document.getElementById('searchInput');
+    const results = document.getElementById('searchResults');
+    const closeBtn = document.getElementById('searchClose');
+    if (!btn || !panel || !input || !results) return;
+
+    const PAGES = [
+        { title: 'Club History',        sub: 'Founding, trophies and milestones', href: 'history.html',              terms: 'history trophies titles dumankaya cup founding 2021 champions honours' },
+        { title: "Bizarri's Stadium",   sub: 'Home ground of Almail SC',          href: 'stadium.html',              terms: 'stadium ground venue bizarri facilities' },
+        { title: 'Amateur Club Status', sub: 'Club news',                         href: 'news-amateur-status.html',  terms: 'news amateur status 2026 renew article' },
+        { title: 'Matches',             sub: 'Results by season',                 href: '#matches',                  terms: 'matches results fixtures seasons scores' },
+        { title: 'Squad',               sub: "Men's first team",                  href: '#teams',                    terms: 'squad team players roster' },
+        { title: 'Tickets & Membership',sub: 'Coming soon',                       href: '#tickets',                  terms: 'tickets membership' },
+        { title: 'Official Shop',       sub: 'Coming soon',                       href: '#shop',                     terms: 'shop store merchandise kit apparel' },
+        { title: 'Club Information',    sub: 'Contact, stadium, joining the club',href: '#support',                  terms: 'contact email whatsapp join player form enquiries' }
+    ];
+
+    let index = null;
+
+    function yearOf(match) {
+        const m = /(\d{4})/.exec(match.date || '');
+        return m ? m[1] : '';
+    }
+
+    function buildIndex() {
+        const items = [];
+
+        if (typeof matchData === 'object' && matchData) {
+            Object.keys(matchData).forEach(key => {
+                const m = matchData[key];
+                const yr = yearOf(m);
+                items.push({
+                    kind: 'Match',
+                    icon: 'fa-futbol',
+                    title: `${m.homeTeam} ${m.score} ${m.awayTeam}`,
+                    sub: [m.compLabel, m.date].filter(Boolean).join('  ·  '),
+                    action: () => { closePanel(); openMatchDetail(key); },
+                    terms: [m.homeTeam, m.awayTeam, m.compLabel, m.compName, m.round,
+                            m.venue, m.date, m.winner, m.score, yr].filter(Boolean).join(' ')
+                });
+            });
+        }
+
+        if (typeof playerData === 'object' && playerData) {
+            Object.keys(playerData).forEach(id => {
+                const p = playerData[id];
+                items.push({
+                    kind: 'Player',
+                    icon: 'fa-user',
+                    title: p.name,
+                    sub: [p.position, p.nationality].filter(Boolean).join('  ·  '),
+                    terms: [p.name, p.position, p.nationality, p.dob].filter(Boolean).join(' ')
+                });
+            });
+        }
+
+        PAGES.forEach(pg => {
+            items.push({
+                kind: 'Page',
+                icon: 'fa-file-lines',
+                title: pg.title,
+                sub: pg.sub,
+                action: () => { closePanel(); window.location.href = pg.href; },
+                terms: `${pg.title} ${pg.sub} ${pg.terms}`
+            });
+        });
+
+        items.forEach(it => { it.haystack = `${it.title} ${it.sub} ${it.terms}`.toLowerCase(); });
+        return items;
+    }
+
+    function score(item, q) {
+        if (item.haystack.indexOf(q) === -1) return -1;
+        // title matches rank above incidental term matches; earlier matches rank higher
+        const inTitle = item.title.toLowerCase().indexOf(q);
+        if (inTitle === 0) return 0;
+        if (inTitle > 0)   return 1;
+        return 2 + Math.min(item.haystack.indexOf(q), 50) / 100;
+    }
+
+    function render(q) {
+        results.innerHTML = '';
+        q = q.trim().toLowerCase();
+        if (!q) return;
+
+        const hits = index
+            .map(it => ({ it, s: score(it, q) }))
+            .filter(x => x.s >= 0)
+            .sort((a, b) => a.s - b.s)
+            .slice(0, 12);
+
+        if (!hits.length) {
+            const li = document.createElement('li');
+            li.className = 'search-empty';
+            li.textContent = `No results for “${q}”`;
+            results.appendChild(li);
+            return;
+        }
+
+        hits.forEach(({ it }) => {
+            const li = document.createElement('li');
+            li.className = 'search-result';
+            li.setAttribute('role', 'option');
+            li.innerHTML =
+                `<i class="fas ${it.icon} search-result-icon" aria-hidden="true"></i>` +
+                `<span class="search-result-text">` +
+                    `<span class="search-result-title"></span>` +
+                    `<span class="search-result-sub"></span>` +
+                `</span>` +
+                `<span class="search-result-kind"></span>`;
+            li.querySelector('.search-result-title').textContent = it.title;
+            li.querySelector('.search-result-sub').textContent   = it.sub || '';
+            li.querySelector('.search-result-kind').textContent  = it.kind;
+            if (it.action) {
+                li.tabIndex = 0;
+                li.classList.add('is-clickable');
+                li.addEventListener('click', it.action);
+                li.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); it.action(); }
+                });
+            }
+            results.appendChild(li);
+        });
+    }
+
+    function openPanel() {
+        if (!index) index = buildIndex();
+        panel.hidden = false;
+        document.body.classList.add('search-open');
+        btn.setAttribute('aria-expanded', 'true');
+        input.focus();
+    }
+
+    function closePanel() {
+        panel.hidden = true;
+        document.body.classList.remove('search-open');
+        btn.setAttribute('aria-expanded', 'false');
+        input.value = '';
+        results.innerHTML = '';
+        btn.focus();
+    }
+
+    btn.addEventListener('click', () => (panel.hidden ? openPanel() : closePanel()));
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+    input.addEventListener('input', () => render(input.value));
+    panel.addEventListener('click', e => { if (e.target === panel) closePanel(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !panel.hidden) closePanel();
+    });
+})();

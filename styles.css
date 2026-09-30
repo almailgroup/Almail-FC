@@ -214,8 +214,12 @@ body.rtl-mode .back-to-top {
     font-size: 1rem;
     padding: 0.5rem;
     transition: color 0.2s;
-    display: none;
 }
+
+/* Search is available at every width; the hamburger is mobile-only,
+   since the full nav is already visible on desktop. */
+.search-btn { display: block; }
+.menu-btn   { display: none; }
 
 .search-btn:hover, .menu-btn:hover { color: var(--white); }
 
@@ -1710,3 +1714,171 @@ i.fa-twitter, .fa-twitter {
     font-size: inherit;
 }
 }
+
+/* ── SEARCH PANEL ─────────────────────────────────────────── */
+.search-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(4px);
+    padding: 80px 24px 24px;
+    overflow-y: auto;
+}
+.search-panel[hidden] { display: none; }
+body.search-open { overflow: hidden; }
+
+.search-panel-inner {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.search-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--primary-light);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 0 12px;
+}
+.search-input-icon { color: var(--text-gray); font-size: 15px; }
+
+.search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 17px;
+    padding: 16px 12px;
+    min-width: 0;
+}
+.search-input::placeholder { color: var(--text-gray); }
+/* hide the browser's native clear button; the panel has its own close control */
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+
+.search-close {
+    color: var(--text-gray);
+    font-size: 28px;
+    line-height: 1;
+    padding: 4px 8px;
+    transition: color .2s;
+}
+.search-close:hover { color: var(--white); }
+
+.search-hint {
+    color: var(--text-gray);
+    font-size: 13px;
+    margin: 12px 4px 0;
+}
+
+.search-results { margin-top: 16px; }
+
+.search-result {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background: var(--primary-dark);
+    transition: border-color .2s, background .2s;
+}
+.search-result.is-clickable { cursor: pointer; }
+.search-result.is-clickable:hover,
+.search-result.is-clickable:focus-visible {
+    background: var(--primary-light);
+    border-color: var(--border-light);
+    outline: none;
+}
+.search-result-icon { color: var(--text-gray); width: 18px; text-align: center; flex-shrink: 0; }
+.search-result-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.search-result-title {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.search-result-sub { color: var(--text-gray); font-size: 12.5px; }
+.search-result-kind {
+    color: var(--text-gray);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 3px 7px;
+    flex-shrink: 0;
+}
+.search-empty {
+    color: var(--text-gray);
+    text-align: center;
+    padding: 28px 16px;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .search-panel { padding: 64px 16px 16px; }
+    .search-input { font-size: 16px; }   /* 16px avoids iOS zoom-on-focus */
+    .search-result-kind { display: none; }
+}
+
+/* ── HONOURS ──────────────────────────────────────────────── */
+.honours-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 0;
+}
+.honours-lead {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 14.5px;
+    max-width: 640px;
+    margin: -8px auto 32px;
+}
+.honours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.honour-card {
+    background: var(--primary-dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 16px;
+    text-align: center;
+    transition: border-color .2s, transform .2s;
+}
+.honour-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.honour-icon { font-size: 26px; color: #d4af37; margin-bottom: 10px; }
+.honour-year {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: .02em;
+    line-height: 1.1;
+}
+.honour-comp {
+    display: block;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    margin-top: 6px;
+}
+.honours-note {
+    text-align: center;
+    color: var(--text-gray);
+    font-size: 13px;
+    margin-top: 28px;
+}
+.honours-note strong { color: var(--white); font-weight: 700; }

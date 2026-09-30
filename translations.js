@@ -4,6 +4,13 @@ const translations = {
         'promo-text': 'Professional Amateur Football Club — Established 2021',
         'banner-contact': 'Contact',
 
+        // Honours
+        'nav-honours': 'HONOURS',
+        'honours-title': 'HONOURS',
+        'honours-lead': "Four consecutive Dumankaya Cup titles since the club's competitive debut.",
+        'honour-dumankaya': 'Dumankaya Cup',
+        'honours-note': 'Almail SC is the most successful club in the history of the competition.',
+
         // Header Nav
         'nav-home': 'HOME',
         'nav-news': 'NEWS',
@@ -114,6 +121,13 @@ const translations = {
         // Promo Banner
         'promo-text': 'نادي رياضي هاوي احترافي — تأسس 2021',
         'banner-contact': 'اتصل بنا',
+
+        // Honours
+        'nav-honours': 'الألقاب',
+        'honours-title': 'الألقاب',
+        'honours-lead': 'أربعة ألقاب متتالية في كأس دومانكايا منذ أول ظهور تنافسي للنادي.',
+        'honour-dumankaya': 'كأس دومانكايا',
+        'honours-note': 'نادي المائل الرياضي هو النادي الأكثر نجاحاً في تاريخ البطولة.',
 
         // Header Nav
         'nav-home': 'الرئيسية',
@@ -244,7 +258,9 @@ function setLanguage(lang) {
 
     // Update language button states
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        const isActive = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
     // Trigger any language-dependent features
