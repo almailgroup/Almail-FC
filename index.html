@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Almail Sports Club – Official Website</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" href="favicon-192.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,11 +19,12 @@
         <div class="header-inner">
             <a href="index.html" class="club-logo">
                 <div class="club-crest">
-                    <img src="logo.png" alt="Almail SC" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="AlmailScLogo.png" alt="Almail SC" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <span class="crest-text crest-fallback">ASC</span>
                 </div>
             </a>
             <nav class="main-nav" id="mainNav">
+                <a href="index.html" class="nav-link" data-i18n="nav-home">HOME</a>
                 <a href="#latest" class="nav-link" data-i18n="nav-news">NEWS</a>
                 <a href="#teams" class="nav-link" data-i18n="nav-squad">SQUAD</a>
                 <a href="#matches" class="nav-link" data-i18n="nav-matches">MATCHES</a>
@@ -46,7 +49,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-logo-wrap">
-                <img src="logo.png" alt="Almail SC" class="hero-logo-img" onerror="this.style.display='none';">
+                <img src="AlmailScLogo.png" alt="Almail SC" class="hero-logo-img" onerror="this.style.display='none';">
             </div>
             <h1 class="hero-title" data-i18n="hero-title">ALMAIL SPORTS CLUB</h1>
             <p class="hero-subtitle" data-i18n="hero-subtitle">Professional Amateur Football Club</p>
@@ -68,8 +71,8 @@
                     </div>
                     <div class="news-body">
                         <span class="news-meta"><span data-i18n="news-date">17 JUN 2026</span> &nbsp;&bull;&nbsp; <span data-i18n="news-category">Club News</span></span>
-                        <h3 data-i18n="news-article-title">Almail SC Renews Amateur Club Status for 2026</h3>
-                        <p data-i18n="news-article-desc">Almail Sports Club is proud to announce the renewal of its amateur club status for the 2026 season, reaffirming our commitment to grassroots football and developing talent in the community.</p>
+                        <h3 data-i18n="news-article-title">Almail SC Set to Renew Amateur Club Status for 2026</h3>
+                        <p data-i18n="news-article-desc">Almail Sports Club is preparing to renew its amateur club status for the 2026 season, reaffirming the club's ongoing commitment to grassroots football and developing talent in the community.</p>
                         <a href="news-amateur-status.html" class="news-link" data-i18n="news-read-more">READ FULL ARTICLE</a>
                     </div>
                 </article>
@@ -84,14 +87,23 @@
 
             <!-- Season Selector -->
             <div class="season-tabs">
-                <button class="season-tab active" data-season="2025" data-i18n="season-2025">2025</button>
+                <button class="season-tab active" data-season="2026" data-i18n="season-2026">2026</button>
+                <button class="season-tab" data-season="2025" data-i18n="season-2025">2025</button>
                 <button class="season-tab" data-season="2024" data-i18n="season-2024">2024</button>
                 <button class="season-tab" data-season="2023" data-i18n="season-2023">2023</button>
                 <button class="season-tab" data-season="2022" data-i18n="season-2022">2022</button>
             </div>
 
+            <!-- 2026 Season -->
+            <div class="season-panel active" id="season-2026">
+                <div class="coming-soon-matches">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3><span data-i18n="season-records">Match records for the</span> 2026 <span data-i18n="season-coming">season are coming soon.</span></h3>
+                </div>
+            </div>
+
             <!-- 2025 Season -->
-            <div class="season-panel active" id="season-2025">
+            <div class="season-panel" id="season-2025">
                 <div class="match-app-card" onclick="openMatchDetail('dumankaya')">
                     <div class="match-app-header">
                         <span class="match-competition-badge" data-i18n="competition-dumankaya">DUMANKAYA CUP</span>
@@ -100,7 +112,7 @@
                     <div class="match-app-body">
                         <div class="match-app-team home-team">
                             <div class="match-team-crest">
-                                <img src="logo.png" alt="ASC" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <img src="AlmailScLogo.png" alt="ASC" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <span class="crest-placeholder">A</span>
                             </div>
                             <span class="match-team-name" data-i18n="team-almail">ALMAIL SC</span>
@@ -136,7 +148,7 @@
                     <div class="match-app-body">
                         <div class="match-app-team home-team">
                             <div class="match-team-crest">
-                                <img src="logo.png" alt="ASC" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <img src="AlmailScLogo.png" alt="ASC" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <span class="crest-placeholder">A</span>
                             </div>
                             <span class="match-team-name" data-i18n="team-almail">ALMAIL SC</span>
@@ -146,7 +158,8 @@
                             <div class="match-app-status ft" data-i18n="ft">FT</div>
                         </div>
                         <div class="match-app-team away-team">
-                            <div class="match-team-crest">
+                            <div class="match-team-crest alt-crest">
+                                <img src="Guards.png" alt="Palestine Guards" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                                 <span class="crest-placeholder">PG</span>
                             </div>
                             <span class="match-team-name">PALESTINE GUARDS</span>
@@ -163,9 +176,221 @@
 
             <!-- 2023 Season -->
             <div class="season-panel" id="season-2023">
-                <div class="coming-soon-matches">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h3><span data-i18n="season-records">Match records for the</span> 2023 <span data-i18n="season-coming">season are coming soon.</span></h3>
+                <!-- Competition Sub-tabs -->
+                <div class="comp-subtabs">
+                    <button class="comp-subtab active" onclick="show2023Section('dumankaya')">DUMANKAYA CUP</button>
+                    <button class="comp-subtab" onclick="show2023Section('friendlies')">FRIENDLIES</button>
+                </div>
+
+                <!-- Dumankaya Cup Sub-section -->
+                <div id="s2023-dumankaya" class="comp-subsection">
+                    <!-- View toggle -->
+                    <div class="view-toggle-bar">
+                        <button class="view-toggle-btn active" onclick="show2023View('matches')"><i class="fas fa-futbol"></i> VIEW MATCHES</button>
+                        <button class="view-toggle-btn" onclick="show2023View('standings')"><i class="fas fa-list-ol"></i> VIEW STANDINGS</button>
+                    </div>
+
+                    <!-- Matches View -->
+                    <div id="s2023-matches">
+                        <!-- Round 1 -->
+                        <div class="match-app-card" onclick="openMatchDetail('dumankaya-2023-r1')">
+                            <div class="match-app-header">
+                                <span class="match-competition-badge">DUMANKAYA CUP</span>
+                                <span class="match-type-badge">GROUP STAGE — ROUND 1</span>
+                            </div>
+                            <div class="match-app-body">
+                                <div class="match-app-team home-team">
+                                    <div class="match-team-crest" style="background:rgba(255,255,255,0.1);border-radius:4px;">
+                                        <span class="crest-placeholder">RU</span>
+                                    </div>
+                                    <span class="match-team-name">RIYADH UNITED</span>
+                                </div>
+                                <div class="match-app-score-block">
+                                    <div class="match-app-score">5 <span class="score-sep">–</span> 0</div>
+                                    <div class="match-app-status ft">FT</div>
+                                </div>
+                                <div class="match-app-team away-team">
+                                    <div class="match-team-crest alt-crest">
+                                        <img src="Guards.png" alt="Palestine Guards" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                        <span class="crest-placeholder">PG</span>
+                                    </div>
+                                    <span class="match-team-name">PALESTINE GUARDS</span>
+                                </div>
+                            </div>
+                            <div class="match-app-footer">
+                                <span><i class="fas fa-calendar"></i> Sun 13 Jul 2023</span>
+                                <span><i class="fas fa-clock"></i> 7:40 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
+                                <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Round 2 -->
+                        <div class="match-app-card" onclick="openMatchDetail('dumankaya-2023-r2')">
+                            <div class="match-app-header">
+                                <span class="match-competition-badge">DUMANKAYA CUP</span>
+                                <span class="match-type-badge">GROUP STAGE — ROUND 2</span>
+                            </div>
+                            <div class="match-app-body">
+                                <div class="match-app-team home-team">
+                                    <div class="match-team-crest alt-crest">
+                                        <img src="AlmailScLogo.png" alt="ASC" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                        <span class="crest-placeholder">A</span>
+                                    </div>
+                                    <span class="match-team-name">ALMAIL SC</span>
+                                </div>
+                                <div class="match-app-score-block">
+                                    <div class="match-app-score">8 <span class="score-sep">–</span> 1</div>
+                                    <div class="match-app-status ft">FT</div>
+                                </div>
+                                <div class="match-app-team away-team">
+                                    <div class="match-team-crest alt-crest">
+                                        <img src="Guards.png" alt="Palestine Guards" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                        <span class="crest-placeholder">PG</span>
+                                    </div>
+                                    <span class="match-team-name">PALESTINE GUARDS</span>
+                                </div>
+                            </div>
+                            <div class="match-app-footer">
+                                <span><i class="fas fa-calendar"></i> Sun 16 Jul 2023</span>
+                                <span><i class="fas fa-clock"></i> 6:30 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
+                                <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
+                            </div>
+                        </div>
+
+                        <!-- Round 3 -->
+                        <div class="match-app-card" onclick="openMatchDetail('dumankaya-2023-r3')">
+                            <div class="match-app-header">
+                                <span class="match-competition-badge">DUMANKAYA CUP</span>
+                                <span class="match-type-badge">GROUP STAGE — ROUND 3</span>
+                            </div>
+                            <div class="match-app-body">
+                                <div class="match-app-team home-team">
+                                    <div class="match-team-crest alt-crest">
+                                        <img src="AlmailScLogo.png" alt="ASC" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                        <span class="crest-placeholder">A</span>
+                                    </div>
+                                    <span class="match-team-name">ALMAIL SC</span>
+                                </div>
+                                <div class="match-app-score-block">
+                                    <div class="match-app-score">5 <span class="score-sep">–</span> 2</div>
+                                    <div class="match-app-status ft">FT</div>
+                                </div>
+                                <div class="match-app-team away-team">
+                                    <div class="match-team-crest" style="background:rgba(255,255,255,0.1);border-radius:4px;">
+                                        <span class="crest-placeholder">RU</span>
+                                    </div>
+                                    <span class="match-team-name">RIYADH UNITED</span>
+                                </div>
+                            </div>
+                            <div class="match-app-footer">
+                                <span><i class="fas fa-calendar"></i> Tue 18 Jul 2023</span>
+                                <span><i class="fas fa-clock"></i> 7:40 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
+                                <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Standings View -->
+                    <div id="s2023-standings" style="display:none; margin-top:1rem; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:8px;">
+                        <h4 style="margin-bottom:1.2rem; color:var(--white); font-size:1rem; letter-spacing:0.05em;">GROUP STANDINGS</h4>
+                        <div style="overflow-x:auto;">
+                            <table style="width:100%; color:var(--white); font-size:0.85rem; border-collapse:collapse;">
+                                <thead>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.2);">
+                                        <th style="text-align:left;padding:0.5rem 0.3rem;">Pos</th>
+                                        <th style="text-align:left;padding:0.5rem 0.3rem;" colspan="2">Team</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">P</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">W</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">D</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">L</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">GF</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">GA</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">GD</th>
+                                        <th style="text-align:center;padding:0.5rem 0.3rem;">Pts</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(0,255,0,0.07);">
+                                        <td style="padding:0.6rem 0.3rem;font-weight:700;">1</td>
+                                        <td style="padding:0.6rem 0.2rem;"><img src="AlmailScLogo.png" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;" alt="ASC"></td>
+                                        <td style="padding:0.6rem 0.3rem;"><strong>Almail SC</strong><br><span style="font-size:0.7rem;color:gold;letter-spacing:0.05em;">CHAMPIONS</span></td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">2</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">2</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">0</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">0</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">13</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">3</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">+10</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;font-weight:700;">6</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                        <td style="padding:0.6rem 0.3rem;">2</td>
+                                        <td style="padding:0.6rem 0.2rem;"><div style="width:28px;height:28px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;">RU</div></td>
+                                        <td style="padding:0.6rem 0.3rem;">Riyadh United</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">2</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">1</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">0</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">1</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">7</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">5</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">+2</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;font-weight:700;">3</td>
+                                    </tr>
+                                    <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+                                        <td style="padding:0.6rem 0.3rem;">3</td>
+                                        <td style="padding:0.6rem 0.2rem;"><img src="Guards.png" style="width:28px;height:28px;object-fit:contain;vertical-align:middle;" alt="PG"></td>
+                                        <td style="padding:0.6rem 0.3rem;">Palestine Guards</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">2</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">0</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">0</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">2</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">1</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">13</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;">-12</td>
+                                        <td style="text-align:center;padding:0.6rem 0.3rem;font-weight:700;">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Friendlies Sub-section -->
+                <div id="s2023-friendlies" class="comp-subsection" style="display:none;">
+                    <div class="match-app-card" onclick="openMatchDetail('friendly-2023')">
+                        <div class="match-app-header">
+                            <span class="match-competition-badge">FRIENDLY</span>
+                            <span class="match-type-badge">MATCH</span>
+                        </div>
+                        <div class="match-app-body">
+                            <div class="match-app-team home-team">
+                                <div class="match-team-crest alt-crest">
+                                    <img src="AlmailScLogo.png" alt="ASC" onload="this.nextElementSibling.style.display='none';" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                                    <span class="crest-placeholder">A</span>
+                                </div>
+                                <span class="match-team-name">ALMAIL SC</span>
+                            </div>
+                            <div class="match-app-score-block">
+                                <div class="match-app-score">7 <span class="score-sep">–</span> 6</div>
+                                <div class="match-app-status ft">FT</div>
+                            </div>
+                            <div class="match-app-team away-team">
+                                <div class="match-team-crest" style="background:rgba(255,255,255,0.1);border-radius:4px;">
+                                    <span class="crest-placeholder">TB</span>
+                                </div>
+                                <span class="match-team-name">TURKISH BULDOGLER</span>
+                            </div>
+                        </div>
+                        <div class="match-app-footer">
+                            <span><i class="fas fa-calendar"></i> Wed 16 Aug 2023</span>
+                            <span><i class="fas fa-clock"></i> 5:30 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
+                            <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -191,7 +416,7 @@
                 <div class="modal-teams-row">
                     <div class="modal-team">
                         <div class="modal-crest home">
-                            <img src="logo.png" alt="ASC" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="AlmailScLogo.png" alt="ASC" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <span class="crest-placeholder">A</span>
                         </div>
                         <span class="modal-team-name">ALMAIL SC</span>
@@ -474,7 +699,7 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <div class="footer-crest">
-                    <img src="logo.png" alt="ASC" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="AlmailScLogo.png" alt="ASC" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <span class="footer-crest-text">ASC</span>
                 </div>
                 <div>
@@ -546,6 +771,7 @@
                 <button onclick="closeFloatMenu()"><i class="fas fa-times"></i></button>
             </div>
             <ul class="float-menu-links">
+                <li><a href="index.html" onclick="closeFloatMenu()"><i class="fas fa-home"></i> <span data-i18n="nav-home">HOME</span></a></li>
                 <li><a href="#latest"  onclick="closeFloatMenu()"><i class="fas fa-newspaper"></i> <span data-i18n="nav-news">NEWS</span></a></li>
                 <li><a href="#matches" onclick="closeFloatMenu()"><i class="fas fa-futbol"></i> <span data-i18n="nav-matches">MATCHES</span></a></li>
                 <li><a href="#teams"   onclick="closeFloatMenu()"><i class="fas fa-users"></i> <span data-i18n="nav-squad">SQUAD</span></a></li>

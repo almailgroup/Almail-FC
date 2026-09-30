@@ -5,6 +5,7 @@ const translations = {
         'banner-contact': 'Contact',
 
         // Header Nav
+        'nav-home': 'HOME',
         'nav-news': 'NEWS',
         'nav-squad': 'SQUAD',
         'nav-matches': 'MATCHES',
@@ -27,8 +28,9 @@ const translations = {
         // News Section
         'news-title': 'LATEST NEWS',
         'news-category': 'CLUB NEWS',
-        'news-article-title': 'Almail SC Renews Amateur Club Status for 2026',
-        'news-article-desc': 'Almail Sports Club is proud to announce the renewal of its amateur club status for the 2026 season, reaffirming our commitment to grassroots football and developing talent in the community.',
+        'news-article-title': 'Almail SC Set to Renew Amateur Club Status for 2026',
+        'news-article-desc': 'Almail Sports Club is preparing to renew its amateur club status for the 2026 season, reaffirming the club\'s ongoing commitment to grassroots football and developing talent in the community.',
+        'season-2026': '2026',
         'news-read-more': 'READ FULL ARTICLE',
         'news-date': '17 JUN 2026',
 
@@ -86,7 +88,7 @@ const translations = {
         'stadium-desc': 'Bizarri\'s Stadium, proudly sponsored by Bizarri, is the home ground of Almail Sports Club with world-class facilities.',
         'learn-more': 'LEARN MORE',
         'history': 'HISTORY',
-        'history-desc': 'The full history of Almail Sports Club is coming soon. Discover the journey of the club from its founding to today.',
+        'history-desc': 'Discover the full story of Almail Sports Club — from its founding in 2021 to four consecutive Dumankaya Cup titles.',
         'coming-soon': 'COMING SOON',
         'player-form': 'PLAYER FORM',
         'player-form-desc': 'Interested in joining Almail SC? Get in touch with the club directly. Please provide: name, position, date of birth, country, height, and a photo.',
@@ -114,6 +116,7 @@ const translations = {
         'banner-contact': 'اتصل بنا',
 
         // Header Nav
+        'nav-home': 'الرئيسية',
         'nav-news': 'أخبار',
         'nav-squad': 'الفريق',
         'nav-matches': 'المباريات',
@@ -136,8 +139,9 @@ const translations = {
         // News Section
         'news-title': 'أحدث الأخبار',
         'news-category': 'أخبار النادي',
-        'news-article-title': 'نادي الميل يجدد حالته كنادي هاوي لعام 2026',
-        'news-article-desc': 'يفخر نادي الميل الرياضي بإعلان تجديد حالته كنادي هاوي للموسم 2026، مؤكداً التزامنا بكرة القدم الشعبية وتطوير المواهب في المجتمع.',
+        'news-article-title': 'نادي الميل على وشك تجديد حالته كنادي هاوي لعام 2026',
+        'news-article-desc': 'يستعد نادي الميل الرياضي لتجديد حالته كنادي هاوي للموسم 2026، مؤكداً الالتزام المستمر بكرة القدم الشعبية وتطوير المواهب في المجتمع.',
+        'season-2026': '2026',
         'news-read-more': 'اقرأ المقال الكامل',
         'news-date': '17 يونيو 2026',
 
@@ -195,7 +199,7 @@ const translations = {
         'stadium-desc': 'ملعب بيزاري، برعاية شركة بيزاري، هو ملعب نادي الميل الرياضي مع مرافق عالمية.',
         'learn-more': 'اقرأ المزيد',
         'history': 'التاريخ',
-        'history-desc': 'سيأتي التاريخ الكامل لنادي الميل الرياضي قريباً. اكتشف رحلة النادي من تأسيسه حتى اليوم.',
+        'history-desc': 'اكتشف القصة الكاملة لنادي الميل الرياضي — من تأسيسه عام 2021 إلى أربعة ألقاب متتالية في كأس دومانكايا.',
         'coming-soon': 'قريباً',
         'player-form': 'نموذج اللاعب',
         'player-form-desc': 'هل أنت مهتم بالانضمام إلى نادي الميل؟ تواصل مع النادي مباشرة. يرجى تقديم: الاسم والمركز وتاريخ الميلاد والدولة والطول والصورة.',
