@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bizarri's Stadium – Almail Sports Club</title>
+    <title data-i18n="title-stadium">Bizarri's Stadium – Almail Sports Club</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -35,37 +35,54 @@
         <div class="header-inner">
             <a href="index.html" class="club-logo">
                 <div class="club-crest">
-                    <img src="AlmailScLogo-256.png" alt="Almail SC" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="AlmailScLogo-256.png" width="256" height="256" alt="Almail SC" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <span class="crest-text crest-fallback">ASC</span>
                 </div>
             </a>
             <nav class="main-nav" id="mainNav">
-                <a href="index.html#latest" class="nav-link">NEWS</a>
-                <a href="index.html#teams" class="nav-link">SQUAD</a>
-                <a href="index.html#matches" class="nav-link">MATCHES</a>
-                <a href="index.html#tickets" class="nav-link">TICKETS</a>
-                <a href="index.html#shop" class="nav-link">SHOP</a>
-                <a href="index.html#support" class="nav-link">CLUB</a>
+                <a href="index.html" class="nav-link" data-i18n="nav-home">HOME</a>
+                <a href="index.html#latest" class="nav-link" data-i18n="nav-news">NEWS</a>
+                <a href="index.html#honours" class="nav-link" data-i18n="nav-honours">HONOURS</a>
+                <a href="index.html#teams" class="nav-link" data-i18n="nav-squad">SQUAD</a>
+                <a href="index.html#matches" class="nav-link" data-i18n="nav-matches">MATCHES</a>
+                <a href="index.html#tickets" class="nav-link" data-i18n="nav-tickets">TICKETS</a>
+                <a href="index.html#shop" class="nav-link" data-i18n="nav-shop">SHOP</a>
+                <a href="index.html#support" class="nav-link" data-i18n="nav-club">CLUB</a>
             </nav>
             <div class="header-right">
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
-                    <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
+                <div class="language-switcher" role="group" aria-label="Language" data-i18n-aria-label="aria-language">
+                    <button class="lang-btn active" data-lang="en" lang="en" aria-pressed="true" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" data-lang="ar" lang="ar" aria-pressed="false" onclick="setLanguage('ar')">AR</button>
                 </div>
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-                <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+                <button class="search-btn" id="searchBtn" aria-label="Search the site" data-i18n-aria-label="aria-search" aria-expanded="false" aria-controls="searchPanel"><i class="fas fa-search"></i></button>
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-i18n-aria-label="aria-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </header>
 
+    <!-- ── SEARCH PANEL ──────────────────────────────────── -->
+    <div class="search-panel" id="searchPanel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+        <div class="search-panel-inner">
+            <div class="search-input-wrap">
+                <i class="fas fa-search search-input-icon" aria-hidden="true"></i>
+                <input type="search" id="searchInput" class="search-input" autocomplete="off"
+                       placeholder="Search matches, players, pages…" data-i18n-placeholder="search-placeholder" aria-label="Search matches, players and pages" data-i18n-aria-label="search-placeholder"
+                       aria-controls="searchResults" aria-describedby="searchHint">
+                <button class="search-close" id="searchClose" aria-label="Close search" data-i18n-aria-label="aria-search-close">&times;</button>
+            </div>
+            <p id="searchHint" class="search-hint" data-i18n="search-hint">Try &ldquo;Dumankaya&rdquo;, &ldquo;Palestine Guards&rdquo;, a player name, or a year.</p>
+            <ul class="search-results" id="searchResults" role="listbox" aria-label="Search results"></ul>
+        </div>
+    </div>
+
     <!-- ── ARTICLE BREADCRUMB ────────────────────────────── -->
     <div class="article-breadcrumb">
         <div class="section-container">
-            <a href="index.html">Home</a>
+            <a href="index.html" data-i18n="crumb-home">Home</a>
             <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-            <a href="index.html#support">Club</a>
+            <a href="index.html#support" data-i18n="crumb-club">Club</a>
             <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-            <span>Stadium</span>
+            <span data-i18n="crumb-stadium">Stadium</span>
         </div>
     </div>
 
@@ -74,7 +91,7 @@
         <div class="section-container">
             <div class="article-layout">
 
-                <article class="article-body">
+                <article class="article-body" data-lang-block="en">
                     <header class="article-header">
                         <div class="article-category">CLUB FACILITIES</div>
                         <h1 class="article-title">Bizarri's Stadium</h1>
@@ -135,7 +152,7 @@
                 </article>
 
                 <!-- Sidebar -->
-                <aside class="article-sidebar">
+                <aside class="article-sidebar" data-lang-block="en">
                     <div class="sidebar-card">
                         <h4>STADIUM INFO</h4>
                         <div class="sidebar-info">
@@ -160,15 +177,113 @@
                     <div class="sidebar-card">
                         <h4>FOLLOW ALMAIL SC</h4>
                         <ul class="sidebar-social">
-                            <li><a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> @almailclub</a></li>
-                            <li><a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> @almailclub</a></li>
-                            <li><a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> @almailsportsclub</a></li>
-                            <li><a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> @almail_sc</a></li>
+                            <li><a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <bdi>@almailclub</bdi></a></li>
+                            <li><a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> <bdi>@almailclub</bdi></a></li>
+                            <li><a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> <bdi>@almailsportsclub</bdi></a></li>
+                            <li><a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <bdi>@almail_sc</bdi></a></li>
                         </ul>
                     </div>
                     <div class="sidebar-card">
                         <h4>PARTNERSHIP</h4>
                         <p>Bizarri is proud to sponsor Almail Sports Club and support grassroots football development.</p>
+                    </div>
+                </aside>
+
+                <!-- Arabic -->
+                <article class="article-body" data-lang-block="ar" lang="ar">
+                    <header class="article-header">
+                        <div class="article-category">مرافق النادي</div>
+                        <h1 class="article-title">ملعب بيزاري</h1>
+                        <div class="article-byline">
+                            <span class="byline-date"><i class="fas fa-map-marker-alt"></i> الملعب الرسمي لنادي الميل الرياضي</span>
+                        </div>
+                    </header>
+
+                    <div class="article-hero-img">
+                        <div class="article-img-placeholder stadium-placeholder">
+                            <i class="fas fa-stadium"></i>
+                            <span>ملعب بيزاري</span>
+                        </div>
+                    </div>
+
+                    <div class="article-text">
+                        <p class="article-lead">ملعب بيزاري هو الملعب الذي يعتز به نادي الميل الرياضي، وهو منشأة عالمية المستوى مكرّسة لدعم تطوير كرة القدم للهواة في مجتمعنا.</p>
+
+                        <h2 class="article-subheading">شراكة الرعاية</h2>
+                        <p>يتشرّف نادي الميل الرياضي بشراكته مع بيزاري، التي أسهمت رعايتها السخية في إنشاء ملعبنا. وتعكس هذه الشراكة التزامنا المشترك بكرة القدم الشعبية وتنمية المجتمع.</p>
+
+                        <p>يؤدي الملعب دوراً محورياً في بناء هوية نادي الميل، ويوفّر للاعبينا بيئة احترافية للتدريب وخوض المباريات. وتنسجم رؤية بيزاري في دعم المبادرات الرياضية المحلية انسجاماً تاماً مع قيم نادينا وطموحاته بعيدة المدى.</p>
+
+                        <blockquote class="article-quote">
+                            <p>«كانت الشراكة مع بيزاري نقلة نوعية لنادينا. فقد مكّننا دعمها من إنشاء ملعب حقيقي يعكس معاييرنا الاحترافية والتزامنا تجاه لاعبينا ومشجعينا.»</p>
+                            <cite>نادي الميل الرياضي</cite>
+                        </blockquote>
+
+                        <h2 class="article-subheading">المرافق والخدمات</h2>
+                        <p>يوفّر ملعب بيزاري مرافق حديثة تشمل:</p>
+                        <ul class="article-list">
+                            <li>أرضية ملعب احترافية تخضع لمعايير صيانة حديثة</li>
+                            <li>ملاعب تدريب لتحضير الفريق</li>
+                            <li>غرف تبديل ملابس بمستوى احترافي</li>
+                            <li>مدرجات للجماهير تتيح رؤية واضحة</li>
+                            <li>مكاتب إدارية وقاعات اجتماعات</li>
+                            <li>مرافق طبية وتأهيلية</li>
+                        </ul>
+
+                        <h2 class="article-subheading">مركز مجتمعي</h2>
+                        <p>إلى جانب كونه ملعب الفريق الأول لنادي الميل، يعمل ملعب بيزاري مركزاً مجتمعياً لتطوير كرة القدم في المنطقة. وتدعم المنشأة برامج كرة القدم للناشئين وأكاديميات التدريب والمباريات الودية على مدار الموسم.</p>
+
+                        <p>ويعكس التزامنا بإتاحة الملعب لأفراد المجتمع إيماننا بأن كرة القدم يجب أن توحّد الناس من جميع الأعمار والخلفيات وتلهمهم. وتعزّز رعاية بيزاري هذه الرؤية، إذ تمكّننا من إبقاء المنشأة متاحة لمبادرات كرة القدم الشعبية.</p>
+
+                        <h2 class="article-subheading">التطوير المستقبلي</h2>
+                        <p>مع استمرار نمو نادي الميل الرياضي، ستنمو أيضاً شراكتنا مع بيزاري لتطوير مرافق الملعب وتحسينها. ونحن ملتزمون بالحفاظ على معايير عالمية المستوى، مع البقاء أوفياء لجذورنا كنادٍ لكرة القدم للهواة يركّز على المجتمع.</p>
+
+                        <p>ويبرهن نجاح شراكتنا مع بيزاري على أن شراكات الرعاية الاستراتيجية قادرة على دعم التطوير الحقيقي لكرة القدم الشعبية دون المساس بهويتنا أو قيمنا.</p>
+                    </div>
+
+                    <div class="article-social-share">
+                        <span>شارك هذه الصفحة:</span>
+                        <a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                        <a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </article>
+
+                <aside class="article-sidebar" data-lang-block="ar" lang="ar">
+                    <div class="sidebar-card">
+                        <h4>معلومات الملعب</h4>
+                        <div class="sidebar-info">
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">الاسم</span>
+                                <span class="sidebar-value">ملعب بيزاري</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">النادي</span>
+                                <span class="sidebar-value">نادي الميل الرياضي</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">الراعي</span>
+                                <span class="sidebar-value">بيزاري</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">النوع</span>
+                                <span class="sidebar-value">ملعب بمقاس كامل</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>تابع نادي الميل</h4>
+                        <ul class="sidebar-social">
+                            <li><a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <bdi>@almailclub</bdi></a></li>
+                            <li><a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> <bdi>@almailclub</bdi></a></li>
+                            <li><a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> <bdi>@almailsportsclub</bdi></a></li>
+                            <li><a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <bdi>@almail_sc</bdi></a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>الشراكة</h4>
+                        <p>تفخر بيزاري برعاية نادي الميل الرياضي ودعم تطوير كرة القدم الشعبية.</p>
                     </div>
                 </aside>
 
@@ -181,32 +296,41 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <div class="footer-crest">
-                    <img src="AlmailScLogo-256.png" alt="ASC" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="AlmailScLogo-256.png" width="256" height="256" loading="lazy" decoding="async" alt="ASC" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <span class="footer-crest-text">ASC</span>
                 </div>
                 <div>
-                    <h3>ALMAIL SPORTS CLUB</h3>
-                    <p>Professional Amateur Football</p>
+                    <h3 data-i18n="hero-title">ALMAIL SPORTS CLUB</h3>
+                    <p data-i18n="footer-tagline">Professional Amateur Football</p>
                     <p class="footer-email"><a href="mailto:almailclub@gmail.com">almailclub@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
-                    <h4>CLUB</h4>
+                    <h4 data-i18n="footer-club">CLUB</h4>
                     <ul>
-                        <li><a href="index.html#support">About Us</a></li>
-                        <li><a href="stadium.html">Stadium</a></li>
-                        <li><a href="index.html#support">History</a></li>
-                        <li><a href="index.html#support">Contact</a></li>
+                        <li><a href="index.html#support" data-i18n="footer-about">About Us</a></li>
+                        <li><a href="stadium.html" data-i18n="footer-stadium">Stadium</a></li>
+                        <li><a href="history.html" data-i18n="footer-history">History</a></li>
+                        <li><a href="index.html#support" data-i18n="footer-contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>FOOTBALL</h4>
+                    <h4 data-i18n="footer-football">FOOTBALL</h4>
                     <ul>
-                        <li><a href="index.html#teams">First Team</a></li>
-                        <li><a href="index.html#matches">Results</a></li>
-                        <li><a href="index.html#matches">Fixtures</a></li>
-                        <li><a href="index.html#support">Player Form</a></li>
+                        <li><a href="index.html#teams" data-i18n="footer-first-team">First Team</a></li>
+                        <li><a href="index.html#matches" data-i18n="footer-results">Results</a></li>
+                        <li><a href="index.html#matches" data-i18n="footer-fixtures">Fixtures</a></li>
+                        <li><a href="index.html#support" data-i18n="footer-player-form">Player Form</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer-follow-us">FOLLOW US</h4>
+                    <ul class="social-list">
+                        <li><a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <bdi>@almailclub</bdi></a></li>
+                        <li><a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> <bdi>@almailclub</bdi></a></li>
+                        <li><a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> <bdi>@almailsportsclub</bdi></a></li>
+                        <li><a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <bdi>@almail_sc</bdi></a></li>
                     </ul>
                 </div>
             </div>
@@ -214,23 +338,23 @@
         <div class="footer-socials">
             <a href="https://instagram.com/almailclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-instagram"></i>
-                <span>@almailclub</span>
+                <span><bdi>@almailclub</bdi></span>
             </a>
             <a href="https://x.com/almailclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-twitter"></i>
-                <span>@almailclub</span>
+                <span><bdi>@almailclub</bdi></span>
             </a>
             <a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-youtube"></i>
-                <span>@almailsportsclub</span>
+                <span><bdi>@almailsportsclub</bdi></span>
             </a>
             <a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-tiktok"></i>
-                <span>@almail_sc</span>
+                <span><bdi>@almail_sc</bdi></span>
             </a>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Almail Sports Club. All rights reserved. &nbsp;&bull;&nbsp; Bizarri's Stadium</p>
+            <p data-i18n="footer-copyright">&copy; 2026 Almail Sports Club. All rights reserved. &nbsp;&bull;&nbsp; Bizarri's Stadium</p>
         </div>
     </footer>
 

@@ -243,17 +243,17 @@ function updateModalContent(match) {
 
     // Meta row
     document.querySelector('.modal-meta-row').innerHTML =
-        `<span><i class="fas fa-calendar"></i> ${match.date}</span>
-         <span><i class="fas fa-clock"></i> ${match.kickoff}</span>
-         <span><i class="fas fa-map-marker-alt"></i> ${match.venue}</span>`;
+        `<span><i class="fas fa-calendar"></i> <bdi>${match.date}</bdi></span>
+         <span><i class="fas fa-clock"></i> <bdi>${match.kickoff}</bdi></span>
+         <span><i class="fas fa-map-marker-alt"></i> <bdi>${match.venue}</bdi></span>`;
 
     // Details tab
     document.getElementById('tab-details').innerHTML = `
         <div class="detail-row"><span class="detail-label">Competition</span><span class="detail-value">${match.compName}</span></div>
         <div class="detail-row"><span class="detail-label">Round</span><span class="detail-value">${match.round}</span></div>
-        <div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">${match.date}</span></div>
-        <div class="detail-row"><span class="detail-label">Kick-off</span><span class="detail-value">${match.kickoff}</span></div>
-        <div class="detail-row"><span class="detail-label">Venue</span><span class="detail-value">${match.venue}</span></div>
+        <div class="detail-row"><span class="detail-label">Date</span><span class="detail-value"><bdi>${match.date}</bdi></span></div>
+        <div class="detail-row"><span class="detail-label">Kick-off</span><span class="detail-value"><bdi>${match.kickoff}</bdi></span></div>
+        <div class="detail-row"><span class="detail-label">Venue</span><span class="detail-value"><bdi>${match.venue}</bdi></span></div>
         <div class="detail-row"><span class="detail-label">Result</span><span class="detail-value winner">${match.winner}</span></div>`;
 
     // Goals tab
@@ -482,7 +482,12 @@ document.querySelectorAll('.modal-tab').forEach(tab => {
                     icon: 'fa-futbol',
                     title: `${m.homeTeam} ${m.score} ${m.awayTeam}`,
                     sub: [m.compLabel, m.date].filter(Boolean).join('  ·  '),
-                    action: () => { closePanel(); openMatchDetail(key); },
+                    action: () => {
+                        closePanel();
+                        // sub-pages have no match modal; send them to the homepage results
+                        if (document.getElementById('matchModal')) openMatchDetail(key);
+                        else window.location.href = 'index.html#matches';
+                    },
                     terms: [m.homeTeam, m.awayTeam, m.compLabel, m.compName, m.round,
                             m.venue, m.date, m.winner, m.score, yr].filter(Boolean).join(' ')
                 });
@@ -508,7 +513,15 @@ document.querySelectorAll('.modal-tab').forEach(tab => {
                 icon: 'fa-file-lines',
                 title: pg.title,
                 sub: pg.sub,
-                action: () => { closePanel(); window.location.href = pg.href; },
+                action: () => {
+                    closePanel();
+                    // in-page anchors only exist on the homepage
+                    if (pg.href.startsWith('#') && !document.getElementById(pg.href.slice(1))) {
+                        window.location.href = 'index.html' + pg.href;
+                    } else {
+                        window.location.href = pg.href;
+                    }
+                },
                 terms: `${pg.title} ${pg.sub} ${pg.terms}`
             });
         });
@@ -540,7 +553,9 @@ document.querySelectorAll('.modal-tab').forEach(tab => {
         if (!hits.length) {
             const li = document.createElement('li');
             li.className = 'search-empty';
-            li.textContent = `No results for “${q}”`;
+            const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
+            const label = (typeof translations === 'object' && translations[lang] && translations[lang]['search-empty']) || 'No results for';
+            li.textContent = lang === 'ar' ? `${label} «${q}»` : `${label} “${q}”`;
             results.appendChild(li);
             return;
         }

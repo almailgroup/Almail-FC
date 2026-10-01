@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club History – Almail Sports Club</title>
+    <title data-i18n="title-history">Club History – Almail Sports Club</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -35,37 +35,54 @@
         <div class="header-inner">
             <a href="index.html" class="club-logo">
                 <div class="club-crest">
-                    <img src="AlmailScLogo-256.png" alt="Almail SC" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="AlmailScLogo-256.png" width="256" height="256" alt="Almail SC" class="crest-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <span class="crest-text crest-fallback">ASC</span>
                 </div>
             </a>
             <nav class="main-nav" id="mainNav">
-                <a href="index.html#latest" class="nav-link">NEWS</a>
-                <a href="index.html#teams" class="nav-link">SQUAD</a>
-                <a href="index.html#matches" class="nav-link">MATCHES</a>
-                <a href="index.html#tickets" class="nav-link">TICKETS</a>
-                <a href="index.html#shop" class="nav-link">SHOP</a>
-                <a href="index.html#support" class="nav-link">CLUB</a>
+                <a href="index.html" class="nav-link" data-i18n="nav-home">HOME</a>
+                <a href="index.html#latest" class="nav-link" data-i18n="nav-news">NEWS</a>
+                <a href="index.html#honours" class="nav-link" data-i18n="nav-honours">HONOURS</a>
+                <a href="index.html#teams" class="nav-link" data-i18n="nav-squad">SQUAD</a>
+                <a href="index.html#matches" class="nav-link" data-i18n="nav-matches">MATCHES</a>
+                <a href="index.html#tickets" class="nav-link" data-i18n="nav-tickets">TICKETS</a>
+                <a href="index.html#shop" class="nav-link" data-i18n="nav-shop">SHOP</a>
+                <a href="index.html#support" class="nav-link" data-i18n="nav-club">CLUB</a>
             </nav>
             <div class="header-right">
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
-                    <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">AR</button>
+                <div class="language-switcher" role="group" aria-label="Language" data-i18n-aria-label="aria-language">
+                    <button class="lang-btn active" data-lang="en" lang="en" aria-pressed="true" onclick="setLanguage('en')">EN</button>
+                    <button class="lang-btn" data-lang="ar" lang="ar" aria-pressed="false" onclick="setLanguage('ar')">AR</button>
                 </div>
-                <button class="search-btn"><i class="fas fa-search"></i></button>
-                <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+                <button class="search-btn" id="searchBtn" aria-label="Search the site" data-i18n-aria-label="aria-search" aria-expanded="false" aria-controls="searchPanel"><i class="fas fa-search"></i></button>
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-i18n-aria-label="aria-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </header>
 
+    <!-- ── SEARCH PANEL ──────────────────────────────────── -->
+    <div class="search-panel" id="searchPanel" role="dialog" aria-modal="true" aria-label="Search" hidden>
+        <div class="search-panel-inner">
+            <div class="search-input-wrap">
+                <i class="fas fa-search search-input-icon" aria-hidden="true"></i>
+                <input type="search" id="searchInput" class="search-input" autocomplete="off"
+                       placeholder="Search matches, players, pages…" data-i18n-placeholder="search-placeholder" aria-label="Search matches, players and pages" data-i18n-aria-label="search-placeholder"
+                       aria-controls="searchResults" aria-describedby="searchHint">
+                <button class="search-close" id="searchClose" aria-label="Close search" data-i18n-aria-label="aria-search-close">&times;</button>
+            </div>
+            <p id="searchHint" class="search-hint" data-i18n="search-hint">Try &ldquo;Dumankaya&rdquo;, &ldquo;Palestine Guards&rdquo;, a player name, or a year.</p>
+            <ul class="search-results" id="searchResults" role="listbox" aria-label="Search results"></ul>
+        </div>
+    </div>
+
     <!-- ── ARTICLE BREADCRUMB ────────────────────────────── -->
     <div class="article-breadcrumb">
         <div class="section-container">
-            <a href="index.html">Home</a>
+            <a href="index.html" data-i18n="crumb-home">Home</a>
             <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-            <a href="index.html#support">Club</a>
+            <a href="index.html#support" data-i18n="crumb-club">Club</a>
             <span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-            <span>History</span>
+            <span data-i18n="crumb-history">History</span>
         </div>
     </div>
 
@@ -74,7 +91,7 @@
         <div class="section-container">
             <div class="article-layout">
 
-                <article class="article-body">
+                <article class="article-body" data-lang-block="en">
                     <header class="article-header">
                         <div class="article-category">CLUB HISTORY</div>
                         <h1 class="article-title">The Story of Almail Sports Club</h1>
@@ -141,7 +158,7 @@
                 </article>
 
                 <!-- Sidebar -->
-                <aside class="article-sidebar">
+                <aside class="article-sidebar" data-lang-block="en">
                     <div class="sidebar-card">
                         <h4>KEY FACTS</h4>
                         <div class="sidebar-info">
@@ -198,6 +215,130 @@
                     </div>
                 </aside>
 
+                <!-- Arabic -->
+                <article class="article-body" data-lang-block="ar" lang="ar">
+                    <header class="article-header">
+                        <div class="article-category">تاريخ النادي</div>
+                        <h1 class="article-title">قصة نادي الميل الرياضي</h1>
+                        <div class="article-byline">
+                            <span class="byline-date"><i class="fas fa-calendar"></i> تأسس في 28 أغسطس 2021</span>
+                        </div>
+                    </header>
+
+                    <div class="article-text">
+                        <h2 class="article-subheading">النشأة والتأسيس</h2>
+                        <p class="article-lead">نادي الميل الرياضي، المعروف اختصاراً باسم نادي الميل، هو نادٍ كويتي لكرة القدم للهواة، أسّسه منصور عبدالعزيز الميل في 28 أغسطس 2021. وقد انطلق النادي في الأصل كمشروع باسم «دوري الميل الكويتي»، قبل أن يتحوّل إلى نادٍ لكرة القدم في يناير 2024.</p>
+
+                        <p>تقوم فكرة المشروع على بناء نادٍ لكرة القدم قادر يوماً ما على المشاركة في منظومة الدوري الكويتي لكرة القدم، وصناعة إرث رياضي طويل الأمد. يتخذ نادي الميل من الكويت مقراً له، ويخوض مبارياته حالياً على ملعب بيزاري في الخيران. والملعب مملوك لشركة بيزاري، إحدى شركات مجموعة الميل التي تضم أيضاً نادي الميل الرياضي. واللونان الرسميان للنادي هما الأسود والأبيض.</p>
+
+                        <h2 class="article-subheading">القيادة والهوية</h2>
+                        <p>مؤسس النادي ومالكه ورئيسه هو منصور عبدالعزيز الميل، الذي بدأ المشروع من الصفر دون أي بنية كروية قائمة. واعتُمد لقب النادي «ذا سنابرز» (<bdi>The Snappers</bdi>) رسمياً في عام 2024، بعد أن اقتنى النادي سمكة أليفة ارتبطت ارتباطاً وثيقاً بهوية الفريق. ورغم أن اللقب بدأ بشكل غير رسمي، فقد تبنّاه النادي لاحقاً وأدرجه على منصاته الرسمية.</p>
+
+                        <h2 class="article-subheading">إرث اسم «الميل»</h2>
+                        <p>تعود أصول اسم «الميل» إلى عدة أجيال مضت. فبحسب تاريخ العائلة، كان عبدالرضا الميل، الجد الأكبر لمؤسس النادي، يعمل في البحر، وعُرف بين أهل المنطقة بجمع البريد ونقله. وعند وصوله، كان الناس يقولون إن «الميل» قد وصل، جامعين بين أداة التعريف العربية «الـ» والكلمة الإنجليزية <bdi>Mail</bdi> التي تعني البريد. ومع مرور الوقت، ارتبط الاسم بالعائلة حتى أصبح اسمها.</p>
+
+                        <p>وبعد سنوات، صمّم الراحل منصور عبدالرضا الميل، جدّ مؤسس النادي، شعاراً يحمل كلمة «الميل» بالعربية مع رسم لسفينة تقليدية. وأصبح هذا الشعار هوية مجموعة الميل، ثم اعتمده منصور عبدالعزيز الميل لاحقاً شعاراً رسمياً لنادي الميل الرياضي. وقد اعتُمدت النسخة الحالية من شعار النادي في مايو 2024، لتحلّ محل عدة تصاميم سابقة استخدمها المشروع.</p>
+
+                        <h2 class="article-subheading">التحوّل إلى العمل الاحترافي</h2>
+                        <p>قبل أن يصبح نادياً لكرة القدم، عمل المشروع تحت اسم «دوري الميل الكويتي» بين عامي 2021 و2024. وفي يناير 2024، تحوّل المشروع رسمياً إلى نادي الميل الرياضي، وبدأ يركّز بالكامل على أنشطة كرة القدم. ويتمثل الهدف بعيد المدى للنادي في التقدّم نحو المنافسة في الدوريات المنظمة، وتأسيس أكاديمية للناشئين، وبناء ملعب خاص به في نهاية المطاف.</p>
+
+                        <h2 class="article-subheading">الظهور التنافسي الأول والنجاحات المبكرة</h2>
+                        <p>خاض نادي الميل أول ظهور تنافسي له في كأس دومانكايا 2022 في تركيا. وجاءت أولى مبارياته أمام حراس فلسطين، وانتهت بتعادل مثير 4–4. وفاز نادي الميل بركلات الترجيح 1–0، ليحرز لقب كأس دومانكايا 2022. وشارك في البطولة فريقان. وكان هذا الفوز أول لقب في تاريخ النادي، وأرسى أسس المشروع.</p>
+
+                        <h2 class="article-subheading">حقبة معرفي (2023)</h2>
+                        <p>عاد النادي إلى كأس دومانكايا في عام 2023 بقيادة المدرب عبدالرحمن معرفي. وقاد معرفي، الذي أصبح أول مدرب رسمي لنادي الميل في 26 مايو 2023، الفريقَ خلال واحدة من أنجح الفترات في بداياته. ففي 16 يوليو 2023، فاز نادي الميل على حراس فلسطين 8–1، محققاً أكبر انتصار في تاريخ النادي. وبعد يومين، في 18 يوليو 2023، تغلّب نادي الميل على فريق الرياض يونايتد السعودي 5–2، في مباراة حسمت هوية بطل كأس دومانكايا. وشاركت ثلاثة فرق في نسخة 2023. وفي وقت لاحق من العام نفسه، في 16 أغسطس 2023، فاز نادي الميل على فريق بولدوغلر التركي 7–6 في مباراة ودية.</p>
+
+                        <h2 class="article-subheading">حقبة أبوالحسن (2023 – حتى الآن)</h2>
+                        <p>في 9 ديسمبر 2023، حلّ محمد أبوالحسن محل عبدالرحمن معرفي مدرباً للفريق. وكان أبوالحسن قد لعب سابقاً لنادي الميل قبل أن ينتقل إلى التدريب. وتحت قيادته، واصل نادي الميل نجاحاته في كأس دومانكايا. ففي 25 يوليو 2024، فاز النادي على حراس فلسطين 6–4 ليحرز لقب نسخة 2024 من البطولة، التي شارك فيها فريقان. وفي 6 أغسطس 2025، تغلّب نادي الميل على شباب الحرة 7–4 ليتوّج بكأس دومانكايا 2025، التي تنافس عليها فريقان أيضاً.</p>
+
+                        <h2 class="article-subheading">السجل والإنجازات</h2>
+                        <p>حافظ نادي الميل طوال تاريخه على سجل خالٍ من الهزائم في جميع مبارياته الست المسجّلة. وقد فاز النادي في المباريات الست جميعها، مسجلاً 37 هدفاً ومستقبلاً 21 هدفاً. ولا يزال أكبر انتصار له هو الفوز على حراس فلسطين 8–1 في يوليو 2023.</p>
+
+                        <p><strong>الهدّاف التاريخي:</strong> محمد أبوالحسن برصيد 11 هدفاً<br>
+                        <strong>الأكثر مشاركة:</strong> جاسم الميل بست مباريات</p>
+
+                        <p><strong>قادة النادي:</strong></p>
+                        <ul class="article-list">
+                            <li>محمد أبوالحسن (2022–2023)</li>
+                            <li>جاسم الميل (2024)</li>
+                            <li>إبراهيم الحجي (2025 – حتى الآن)</li>
+                        </ul>
+
+                        <h2 class="article-subheading">الهيمنة على كأس دومانكايا</h2>
+                        <p>أحرز النادي لقب كأس دومانكايا أربع مرات متتالية، في أعوام 2022 و2023 و2024 و2025. وتجعل هذه الانتصارات من نادي الميل النادي الأكثر نجاحاً في تاريخ البطولة. ومن أبرز انتصارات النادي: الفوز على حراس فلسطين 8–1، والفوز على الرياض يونايتد 5–2 الذي حسم لقب 2023، والفوز على حراس فلسطين 6–4 في 2024، والفوز على شباب الحرة 7–4 في 2025.</p>
+
+                        <h2 class="article-subheading">الوضع الحالي والرؤية المستقبلية</h2>
+                        <p>يضم نادي الميل الرياضي حالياً نحو 20 لاعباً مسجلاً، ويواصل نشاطه كنادٍ لكرة القدم للهواة. ولا يمتلك النادي بعدُ فرقاً للناشئين أو للسيدات، لكنه يخطط لتأسيس أكاديمية الميل مستقبلاً.</p>
+
+                        <p><strong>رؤية 2030</strong> هي الاستراتيجية التطويرية بعيدة المدى للنادي، وتشمل دخول منظومة الدوري الكويتي لكرة القدم، وتوسيع أنشطة كرة القدم، وإنشاء منظومة أكاديمية متكاملة، وبناء ملعب مقترح يتسع لـ20 ألف متفرج. ومن خلال هذه الطموحات، يأمل نادي الميل أن يتطوّر من مشروع صغير للهواة إلى مؤسسة كروية معترف بها في الكويت.</p>
+
+                        <div class="article-social-share">
+                            <span>شارك هذه الصفحة:</span>
+                            <a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                            <a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                            <a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                            <a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="article-sidebar" data-lang-block="ar" lang="ar">
+                    <div class="sidebar-card">
+                        <h4>حقائق رئيسية</h4>
+                        <div class="sidebar-info">
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">تأسس</span>
+                                <span class="sidebar-value">28 أغسطس 2021</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">المقر</span>
+                                <span class="sidebar-value">الكويت</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">الملعب</span>
+                                <span class="sidebar-value">ملعب بيزاري</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">الألوان</span>
+                                <span class="sidebar-value">الأسود والأبيض</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">لقب الفريق</span>
+                                <span class="sidebar-value">ذا سنابرز</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">عدد اللاعبين</span>
+                                <span class="sidebar-value">نحو 20</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>الإنجازات</h4>
+                        <div class="sidebar-info">
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">السجل</span>
+                                <span class="sidebar-value">6 انتصارات، 0 هزائم</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">الأهداف المسجلة</span>
+                                <span class="sidebar-value">37</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">الأهداف المستقبلة</span>
+                                <span class="sidebar-value">21</span>
+                            </div>
+                            <div class="sidebar-info-row">
+                                <span class="sidebar-label">كؤوس دومانكايا</span>
+                                <span class="sidebar-value">4 (2022–2025)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-card">
+                        <h4>المؤسس والرئيس</h4>
+                        <p>أسّس منصور عبدالعزيز الميل نادي الميل الرياضي برؤية تهدف إلى بناء مؤسسة كروية احترافية للهواة في الكويت.</p>
+                    </div>
+                </aside>
+
             </div>
         </div>
     </main>
@@ -207,41 +348,41 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <div class="footer-crest">
-                    <img src="AlmailScLogo-256.png" alt="ASC" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="AlmailScLogo-256.png" width="256" height="256" loading="lazy" decoding="async" alt="ASC" class="footer-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <span class="footer-crest-text">ASC</span>
                 </div>
                 <div>
-                    <h3>ALMAIL SPORTS CLUB</h3>
-                    <p>Professional Amateur Football</p>
+                    <h3 data-i18n="hero-title">ALMAIL SPORTS CLUB</h3>
+                    <p data-i18n="footer-tagline">Professional Amateur Football</p>
                     <p class="footer-email"><a href="mailto:almailclub@gmail.com">almailclub@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
-                    <h4>CLUB</h4>
+                    <h4 data-i18n="footer-club">CLUB</h4>
                     <ul>
-                        <li><a href="index.html#support">About Us</a></li>
-                        <li><a href="stadium.html">Stadium</a></li>
-                        <li><a href="history.html">History</a></li>
-                        <li><a href="index.html#support">Contact</a></li>
+                        <li><a href="index.html#support" data-i18n="footer-about">About Us</a></li>
+                        <li><a href="stadium.html" data-i18n="footer-stadium">Stadium</a></li>
+                        <li><a href="history.html" data-i18n="footer-history">History</a></li>
+                        <li><a href="index.html#support" data-i18n="footer-contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>FOOTBALL</h4>
+                    <h4 data-i18n="footer-football">FOOTBALL</h4>
                     <ul>
-                        <li><a href="index.html#teams">First Team</a></li>
-                        <li><a href="index.html#matches">Results</a></li>
-                        <li><a href="index.html#matches">Fixtures</a></li>
-                        <li><a href="index.html#support">Player Form</a></li>
+                        <li><a href="index.html#teams" data-i18n="footer-first-team">First Team</a></li>
+                        <li><a href="index.html#matches" data-i18n="footer-results">Results</a></li>
+                        <li><a href="index.html#matches" data-i18n="footer-fixtures">Fixtures</a></li>
+                        <li><a href="index.html#support" data-i18n="footer-player-form">Player Form</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>FOLLOW US</h4>
+                    <h4 data-i18n="footer-follow-us">FOLLOW US</h4>
                     <ul class="social-list">
-                        <li><a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> @almailclub</a></li>
-                        <li><a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> @almailclub</a></li>
-                        <li><a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> @almailsportsclub</a></li>
-                        <li><a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> @almail_sc</a></li>
+                        <li><a href="https://instagram.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> <bdi>@almailclub</bdi></a></li>
+                        <li><a href="https://x.com/almailclub" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> <bdi>@almailclub</bdi></a></li>
+                        <li><a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> <bdi>@almailsportsclub</bdi></a></li>
+                        <li><a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> <bdi>@almail_sc</bdi></a></li>
                     </ul>
                 </div>
             </div>
@@ -249,23 +390,23 @@
         <div class="footer-socials">
             <a href="https://instagram.com/almailclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-instagram"></i>
-                <span>@almailclub</span>
+                <span><bdi>@almailclub</bdi></span>
             </a>
             <a href="https://x.com/almailclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-twitter"></i>
-                <span>@almailclub</span>
+                <span><bdi>@almailclub</bdi></span>
             </a>
             <a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-youtube"></i>
-                <span>@almailsportsclub</span>
+                <span><bdi>@almailsportsclub</bdi></span>
             </a>
             <a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-tiktok"></i>
-                <span>@almail_sc</span>
+                <span><bdi>@almail_sc</bdi></span>
             </a>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Almail Sports Club. All rights reserved. &nbsp;&bull;&nbsp; Bizarri's Stadium</p>
+            <p data-i18n="footer-copyright">&copy; 2026 Almail Sports Club. All rights reserved. &nbsp;&bull;&nbsp; Bizarri's Stadium</p>
         </div>
     </footer>
 

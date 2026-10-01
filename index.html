@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almail Sports Club – Official Website</title>
+    <title data-i18n="title-home">Almail Sports Club – Official Website</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -85,12 +85,12 @@
                 <a href="#support" class="nav-link" data-i18n="nav-club">CLUB</a>
             </nav>
             <div class="header-right">
-                <div class="language-switcher" role="group" aria-label="Language">
+                <div class="language-switcher" role="group" aria-label="Language" data-i18n-aria-label="aria-language">
                     <button class="lang-btn active" data-lang="en" lang="en" aria-pressed="true" onclick="setLanguage('en')">EN</button>
                     <button class="lang-btn" data-lang="ar" lang="ar" aria-pressed="false" onclick="setLanguage('ar')">AR</button>
                 </div>
-                <button class="search-btn" id="searchBtn" aria-label="Search the site" aria-expanded="false" aria-controls="searchPanel"><i class="fas fa-search"></i></button>
-                <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                <button class="search-btn" id="searchBtn" aria-label="Search the site" data-i18n-aria-label="aria-search" aria-expanded="false" aria-controls="searchPanel"><i class="fas fa-search"></i></button>
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-i18n-aria-label="aria-menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </header>
@@ -101,11 +101,11 @@
             <div class="search-input-wrap">
                 <i class="fas fa-search search-input-icon" aria-hidden="true"></i>
                 <input type="search" id="searchInput" class="search-input" autocomplete="off"
-                       placeholder="Search matches, players, pages…" aria-label="Search matches, players and pages"
+                       placeholder="Search matches, players, pages…" data-i18n-placeholder="search-placeholder" aria-label="Search matches, players and pages" data-i18n-aria-label="search-placeholder"
                        aria-controls="searchResults" aria-describedby="searchHint">
-                <button class="search-close" id="searchClose" aria-label="Close search">&times;</button>
+                <button class="search-close" id="searchClose" aria-label="Close search" data-i18n-aria-label="aria-search-close">&times;</button>
             </div>
-            <p id="searchHint" class="search-hint">Try &ldquo;Dumankaya&rdquo;, &ldquo;Palestine Guards&rdquo;, a player name, or a year.</p>
+            <p id="searchHint" class="search-hint" data-i18n="search-hint">Try &ldquo;Dumankaya&rdquo;, &ldquo;Palestine Guards&rdquo;, a player name, or a year.</p>
             <ul class="search-results" id="searchResults" role="listbox" aria-label="Search results"></ul>
         </div>
     </div>
@@ -229,7 +229,7 @@
                     </div>
                     <div class="match-app-footer">
                         <span><i class="fas fa-calendar"></i> Fri 8 Aug 2025</span>
-                        <span><i class="fas fa-clock"></i> 7:55 PM</span>
+                        <span><i class="fas fa-clock"></i> <bdi>7:55 PM</bdi></span>
                         <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                         <span class="match-details-link" data-i18n="match-details">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
                     </div>
@@ -265,7 +265,7 @@
                     </div>
                     <div class="match-app-footer">
                         <span><i class="fas fa-calendar"></i> Thu 25 Jul 2024</span>
-                        <span><i class="fas fa-clock"></i> 7:00 PM</span>
+                        <span><i class="fas fa-clock"></i> <bdi>7:00 PM</bdi></span>
                         <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                         <span class="match-details-link" data-i18n="match-details">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
                     </div>
@@ -317,7 +317,7 @@
                             </div>
                             <div class="match-app-footer">
                                 <span><i class="fas fa-calendar"></i> Sun 13 Jul 2023</span>
-                                <span><i class="fas fa-clock"></i> 7:40 PM</span>
+                                <span><i class="fas fa-clock"></i> <bdi>7:40 PM</bdi></span>
                                 <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                                 <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
                             </div>
@@ -351,7 +351,7 @@
                             </div>
                             <div class="match-app-footer">
                                 <span><i class="fas fa-calendar"></i> Sun 16 Jul 2023</span>
-                                <span><i class="fas fa-clock"></i> 6:30 PM</span>
+                                <span><i class="fas fa-clock"></i> <bdi>6:30 PM</bdi></span>
                                 <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                                 <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
                             </div>
@@ -384,7 +384,7 @@
                             </div>
                             <div class="match-app-footer">
                                 <span><i class="fas fa-calendar"></i> Tue 18 Jul 2023</span>
-                                <span><i class="fas fa-clock"></i> 7:40 PM</span>
+                                <span><i class="fas fa-clock"></i> <bdi>7:40 PM</bdi></span>
                                 <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                                 <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
                             </div>
@@ -484,7 +484,7 @@
                         </div>
                         <div class="match-app-footer">
                             <span><i class="fas fa-calendar"></i> Wed 16 Aug 2023</span>
-                            <span><i class="fas fa-clock"></i> 5:30 PM</span>
+                            <span><i class="fas fa-clock"></i> <bdi>5:30 PM</bdi></span>
                             <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                             <span class="match-details-link">MATCH DETAILS <i class="fas fa-chevron-right"></i></span>
                         </div>
@@ -533,7 +533,7 @@
                 </div>
                 <div class="modal-meta-row">
                     <span><i class="fas fa-calendar"></i> Fri 8 Aug 2025</span>
-                    <span><i class="fas fa-clock"></i> 7:55 PM</span>
+                    <span><i class="fas fa-clock"></i> <bdi>7:55 PM</bdi></span>
                     <span><i class="fas fa-map-marker-alt"></i> Dumankaya Street Stadium</span>
                 </div>
             </div>
@@ -560,7 +560,7 @@
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Kick-off</span>
-                    <span class="detail-value">7:55 PM</span>
+                    <span class="detail-value"><bdi>7:55 PM</bdi></span>
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">Venue</span>
@@ -780,7 +780,7 @@
                     </div>
                     <div class="contact-details">
                         <span><i class="fas fa-envelope"></i> almailclub@gmail.com</span>
-                        <span><i class="fab fa-whatsapp"></i> +1 (440) 278-5870</span>
+                        <span><i class="fab fa-whatsapp"></i> <bdi dir="ltr">+1 (440) 278-5870</bdi></span>
                     </div>
                 </div>
                 <div class="info-box">
@@ -801,28 +801,28 @@
                     <span class="footer-crest-text">ASC</span>
                 </div>
                 <div>
-                    <h3>ALMAIL SPORTS CLUB</h3>
-                    <p>Professional Amateur Football</p>
+                    <h3 data-i18n="hero-title">ALMAIL SPORTS CLUB</h3>
+                    <p data-i18n="footer-tagline">Professional Amateur Football</p>
                     <p class="footer-email"><a href="mailto:almailclub@gmail.com">almailclub@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-cols">
                 <div class="footer-col">
-                    <h4>CLUB</h4>
+                    <h4 data-i18n="footer-club">CLUB</h4>
                     <ul>
-                        <li><a href="#support">About Us</a></li>
-                        <li><a href="stadium.html">Stadium</a></li>
-                        <li><a href="history.html">History</a></li>
-                        <li><a href="#support">Contact</a></li>
+                        <li><a href="#support" data-i18n="footer-about">About Us</a></li>
+                        <li><a href="stadium.html" data-i18n="footer-stadium">Stadium</a></li>
+                        <li><a href="history.html" data-i18n="footer-history">History</a></li>
+                        <li><a href="#support" data-i18n="footer-contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>FOOTBALL</h4>
+                    <h4 data-i18n="footer-football">FOOTBALL</h4>
                     <ul>
-                        <li><a href="#teams">First Team</a></li>
-                        <li><a href="#matches">Results</a></li>
-                        <li><a href="#matches">Fixtures</a></li>
-                        <li><a href="#support">Player Form</a></li>
+                        <li><a href="#teams" data-i18n="footer-first-team">First Team</a></li>
+                        <li><a href="#matches" data-i18n="footer-results">Results</a></li>
+                        <li><a href="#matches" data-i18n="footer-fixtures">Fixtures</a></li>
+                        <li><a href="#support" data-i18n="footer-player-form">Player Form</a></li>
                     </ul>
                 </div>
             </div>
@@ -832,19 +832,19 @@
         <div class="footer-socials">
             <a href="https://instagram.com/almailclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-instagram"></i>
-                <span>@almailclub</span>
+                <span><bdi>@almailclub</bdi></span>
             </a>
             <a href="https://x.com/almailclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-twitter"></i>
-                <span>@almailclub</span>
+                <span><bdi>@almailclub</bdi></span>
             </a>
             <a href="https://youtube.com/@almailsportsclub" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-youtube"></i>
-                <span>@almailsportsclub</span>
+                <span><bdi>@almailsportsclub</bdi></span>
             </a>
             <a href="https://tiktok.com/@almail_sc" target="_blank" rel="noopener" class="social-icon-link">
                 <i class="fab fa-tiktok"></i>
-                <span>@almail_sc</span>
+                <span><bdi>@almail_sc</bdi></span>
             </a>
         </div>
 

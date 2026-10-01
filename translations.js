@@ -4,6 +4,29 @@ const translations = {
         'promo-text': 'Professional Amateur Football Club — Established 2021',
         'banner-contact': 'Contact',
 
+        // Shared page chrome
+        'title-home': 'Almail Sports Club – Official Website',
+        'title-history': 'Club History – Almail Sports Club',
+        'title-stadium': "Bizarri's Stadium – Almail Sports Club",
+        'title-news-amateur': 'Almail SC Set to Renew Amateur Club Status for 2026 – Almail Sports Club',
+        'crumb-home': 'Home',
+        'crumb-club': 'Club',
+        'crumb-news': 'News',
+        'crumb-history': 'History',
+        'crumb-stadium': 'Stadium',
+        'crumb-club-news': 'Club News',
+        'footer-stadium': 'Stadium',
+        'footer-history': 'History',
+        'footer-results': 'Results',
+        'footer-player-form': 'Player Form',
+        'search-placeholder': 'Search matches, players, pages…',
+        'search-hint': 'Try “Dumankaya”, “Palestine Guards”, a player name, or a year.',
+        'search-empty': 'No results for',
+        'aria-search': 'Search the site',
+        'aria-search-close': 'Close search',
+        'aria-menu': 'Open menu',
+        'aria-language': 'Language',
+
         // Honours
         'nav-honours': 'HONOURS',
         'honours-title': 'HONOURS',
@@ -122,12 +145,35 @@ const translations = {
         'promo-text': 'نادي رياضي هاوي احترافي — تأسس 2021',
         'banner-contact': 'اتصل بنا',
 
+        // Shared page chrome
+        'title-home': 'نادي الميل الرياضي – الموقع الرسمي',
+        'title-history': 'تاريخ النادي – نادي الميل الرياضي',
+        'title-stadium': 'ملعب بيزاري – نادي الميل الرياضي',
+        'title-news-amateur': 'نادي الميل يستعد لتجديد صفته كنادٍ للهواة لعام 2026 – نادي الميل الرياضي',
+        'crumb-home': 'الرئيسية',
+        'crumb-club': 'النادي',
+        'crumb-news': 'الأخبار',
+        'crumb-history': 'التاريخ',
+        'crumb-stadium': 'الملعب',
+        'crumb-club-news': 'أخبار النادي',
+        'footer-stadium': 'الملعب',
+        'footer-history': 'التاريخ',
+        'footer-results': 'النتائج',
+        'footer-player-form': 'نموذج اللاعب',
+        'search-placeholder': 'ابحث عن المباريات واللاعبين والصفحات…',
+        'search-hint': 'البحث باللغة الإنجليزية، مثل «Dumankaya» أو «Palestine Guards» أو اسم لاعب أو سنة.',
+        'search-empty': 'لا توجد نتائج لـ',
+        'aria-search': 'البحث في الموقع',
+        'aria-search-close': 'إغلاق البحث',
+        'aria-menu': 'فتح القائمة',
+        'aria-language': 'اللغة',
+
         // Honours
         'nav-honours': 'الألقاب',
         'honours-title': 'الألقاب',
         'honours-lead': 'أربعة ألقاب متتالية في كأس دومانكايا منذ أول ظهور تنافسي للنادي.',
         'honour-dumankaya': 'كأس دومانكايا',
-        'honours-note': 'نادي المائل الرياضي هو النادي الأكثر نجاحاً في تاريخ البطولة.',
+        'honours-note': 'نادي الميل الرياضي هو النادي الأكثر نجاحاً في تاريخ البطولة.',
 
         // Header Nav
         'nav-home': 'الرئيسية',
@@ -153,8 +199,8 @@ const translations = {
         // News Section
         'news-title': 'أحدث الأخبار',
         'news-category': 'أخبار النادي',
-        'news-article-title': 'نادي الميل على وشك تجديد حالته كنادي هاوي لعام 2026',
-        'news-article-desc': 'يستعد نادي الميل الرياضي لتجديد حالته كنادي هاوي للموسم 2026، مؤكداً الالتزام المستمر بكرة القدم الشعبية وتطوير المواهب في المجتمع.',
+        'news-article-title': 'نادي الميل يستعد لتجديد صفته كنادٍ للهواة لعام 2026',
+        'news-article-desc': 'يستعد نادي الميل الرياضي لتجديد صفته كنادٍ للهواة لموسم 2026، مؤكداً التزامه المستمر بكرة القدم الشعبية وتطوير المواهب داخل المجتمع.',
         'season-2026': '2026',
         'news-read-more': 'اقرأ المقال الكامل',
         'news-date': '17 يونيو 2026',
@@ -168,7 +214,7 @@ const translations = {
         'competition-dumankaya': 'كأس دومانكايا',
         'match-final': 'النهائي',
         'team-almail': 'نادي الميل',
-        'team-shabab': 'شباب الهرة',
+        'team-shabab': 'شباب الحرة',
         'home': 'الملعب الخاص',
         'away': 'الملعب الضيف',
         'ft': 'انتهت',
@@ -248,6 +294,18 @@ function setLanguage(lang) {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
             el.textContent = translations[lang][key];
+        }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            el.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+        const key = el.getAttribute('data-i18n-aria-label');
+        if (translations[lang] && translations[lang][key]) {
+            el.setAttribute('aria-label', translations[lang][key]);
         }
     });
 

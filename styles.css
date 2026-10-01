@@ -1469,20 +1469,27 @@ body.rtl-mode {
     text-align: right;
 }
 
-html[dir="rtl"] .header-inner,
-body.rtl-mode .header-inner {
-    flex-direction: row-reverse;
+/* direction: rtl already mirrors flex rows and grid columns, so layouts must
+   NOT also be reversed here (row-reverse / swapped grid templates flip them
+   back to left-to-right). Only physical properties -- left/right borders,
+   padding, margins and absolute offsets -- need explicit mirroring below. */
+
+/* Letter-spacing breaks the joins between Arabic letters. */
+html[lang="ar"] body * { letter-spacing: 0 !important; }
+
+html[dir="rtl"] .article-quote,
+body.rtl-mode .article-quote {
+    border-left: none;
+    border-right: 4px solid var(--accent);
 }
+
+html[dir="rtl"] .breadcrumb-sep i,
+body.rtl-mode .breadcrumb-sep i { transform: scaleX(-1); }
 
 html[dir="rtl"] .header-right,
 body.rtl-mode .header-right {
     margin-left: 0;
     margin-right: auto;
-}
-
-html[dir="rtl"] .footer-brand,
-body.rtl-mode .footer-brand {
-    flex-direction: row-reverse;
 }
 
 html[dir="rtl"] .article-category,
@@ -1519,42 +1526,10 @@ body.rtl-mode .match-details-link {
     margin-right: auto;
 }
 
-html[dir="rtl"] .news-card,
-body.rtl-mode .news-card {
-    grid-template-columns: 1fr 380px;
-}
-
 html[dir="rtl"] .news-category-badge,
 body.rtl-mode .news-category-badge {
     left: auto;
     right: 1rem;
-}
-
-html[dir="rtl"] .sidebar-info-row,
-body.rtl-mode .sidebar-info-row {
-    flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .contact-links,
-body.rtl-mode .contact-links {
-    flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .article-layout,
-body.rtl-mode .article-layout {
-    grid-template-columns: 320px 1fr;
-}
-
-@media (max-width: 1100px) {
-    html[dir="rtl"] .article-layout,
-    body.rtl-mode .article-layout {
-        grid-template-columns: 1fr;
-    }
-}
-
-html[dir="rtl"] .hero-buttons,
-body.rtl-mode .hero-buttons {
-    flex-direction: row-reverse;
 }
 
 /* ── FLOATING MAIN MENU ──────────────────────────────────── */
@@ -1687,11 +1662,6 @@ body.rtl-mode .float-menu-panel {
     right: 0;
 }
 
-html[dir="rtl"] .float-menu-links li a,
-body.rtl-mode .float-menu-links li a {
-    flex-direction: row-reverse;
-}
-
 html[dir="rtl"] .float-menu-links li a:hover,
 body.rtl-mode .float-menu-links li a:hover {
     padding-left: 1.2rem;
@@ -1700,7 +1670,6 @@ body.rtl-mode .float-menu-links li a:hover {
 
 html[dir="rtl"] .float-menu-top,
 body.rtl-mode .float-menu-top {
-    flex-direction: row-reverse;
     text-align: right;
 }
 
@@ -1882,3 +1851,7 @@ body.search-open { overflow: hidden; }
     margin-top: 28px;
 }
 .honours-note strong { color: var(--white); font-weight: 700; }
+
+/* ── BILINGUAL CONTENT BLOCKS ─────────────────────────────── */
+html:not([lang="ar"]) [data-lang-block="ar"],
+html[lang="ar"] [data-lang-block="en"] { display: none !important; }
